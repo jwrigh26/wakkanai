@@ -1,0 +1,11 @@
+{
+  "presets": ["es2017", "stage-2"],
+
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  },
+
+  "plugins": ["transform-class-properties"]
+}
