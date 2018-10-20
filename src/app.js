@@ -1,12 +1,13 @@
 #!/usr/bin/env node
-const cmds = require('./cmds/read.command');
+const {defaultInputDir, normalizeInputPath} = require('./helpers/path.service');
 const {description} = require('./constants');
 
 const run = argv => {
   // const doc = cmd.readYaml(argv.file);
   // C:\Users\jwright\Pictures\images
   // console.log('argvs', argv);
-  const images = cmds.readImageInputDir(argv.directory);
+  const path = normalizeInputPath(argv.directory);
+  console.log('PATH', path);
 };
 
 module.exports = require('yargs')
@@ -23,7 +24,7 @@ module.exports = require('yargs')
       // Run command options
       return yargs.options({
         file: {alias: 'f', default: 'images.yml'},
-        directory: {alias: 'd', default: cmds.defaultInputDir()},
+        directory: {alias: 'd', default: defaultInputDir()},
       });
     },
     run

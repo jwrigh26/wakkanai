@@ -1,0 +1,1 @@
+This is a directory to place raw images to be processed.
