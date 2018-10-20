@@ -1,0 +1,61 @@
+// const hello = require('yargs')
+//   .usage('$0 <cmd> [args]')
+//   .command(
+//     'hello [name]',
+//     'welcome ter yargs!',
+//     yargs => {
+//       yargs.positional('name', {
+//         type: 'string',
+//         default: 'Cambi',
+//         describe: 'the name to say hello to',
+//       });
+//     },
+//     function (argv) {
+//       console.log('hello', argv.name, 'welcome to yargs!');
+//     }
+//   )
+//   .help().argv;
+
+// const choices = require('yargs')
+//   .usage('$0 something goes here')
+//   .alias('i', 'ingredients')
+//   .describe('i', 'choose your burger ingredients')
+//   .choices('i', ['beef patty', 'pickles', 'mustard', 'ketchup'])
+//   .help().argv;
+
+const path = require('path');
+const runCommand = ({alpha, beta}) => {
+  console.log('Running yaml processing stuff');
+  console.log('DIR', path.parse(process.cwd()));
+  console.log('alpha: ', alpha);
+  console.log('beta:', beta);
+};
+
+const secretCommand = ({token}) => {
+  console.log('The secret is burgers rule!');
+  console.log('Token:', token);
+};
+
+module.exports = require('yargs')
+  .usage('Usage: $0 <command> [options]')
+  .command(
+    'run',
+    'Process yaml file of images',
+    yargs => {
+      // Run command options
+      return yargs.option('alpha').option('beta');
+    },
+    runCommand
+  )
+  .command(
+    'secret',
+    'Reveal a secret to the user',
+    yargs => {
+      // Secret command options
+      return yargs.option('token');
+    },
+    secretCommand
+  )
+  .help().argv;
+
+// module.exports = {options};

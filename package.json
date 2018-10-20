@@ -1,11 +1,18 @@
 {
   "name": "wakkanai",
+  "description": "A simple image processing cli app.",
   "version": "0.0.1",
+  "author": "Justin Wright",
+  "license": "MIT",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env,stage-2 src/app.js",
+    "start": "nodemon --exec babel-node src/app.js",
+    "start-s": "node src/app.js",
     "lint": "eslint \"src/**/*.js\"",
     "fix": "eslint \"src/**/*.js\" --fix"
+  },
+  "bin": {
+    "wakkanai": "src/app.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -16,5 +23,13 @@
     "eslint": "^5.6.1",
     "nodemon": "^1.18.4"
   },
-  "dependencies": {}
+  "dependencies": {
+    "cliui": "^4.1.0",
+    "compress-images": "^1.4.2",
+    "js-yaml": "^3.12.0",
+    "node-image-resizer": "^1.0.0",
+    "ora": "^3.0.0",
+    "webp-converter": "^2.1.6",
+    "yargs": "^12.0.2"
+  }
 }
