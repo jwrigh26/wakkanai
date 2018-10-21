@@ -1,13 +1,22 @@
 #!/usr/bin/env node
 const {defaultInputDir, normalizeInputPath} = require('./helpers/path.service');
 const {description} = require('./constants');
+const {readdir, readImageFileStream} = require('./helpers/read.service');
+const {transformImages, writeScratchFile} = require('./helpers/image.service');
+const {readYamlFile} = require('./helpers/yaml.service');
 
-const run = argv => {
-  // const doc = cmd.readYaml(argv.file);
-  // C:\Users\jwright\Pictures\images
-  // console.log('argvs', argv);
+const run = async argv => {
+  const ymlDoc = await readYamlFile(argv.file);
   const path = normalizeInputPath(argv.directory);
-  console.log('PATH', path);
+  const fileNames = await readdir(path);
+  const inStream = readImageFileStream(fileNames);
+  const outStream = transformImages(fileNames, path, ymlDoc);
+  const tmpStream = writeScratchFile();
+
+  inStream.pipe(outStream).pipe(tmpStream);
+  inStream.on('end', () => {
+    console.log('### IMAGE TRANSFORM -- END ###');
+  });
 };
 
 module.exports = require('yargs')
@@ -29,5 +38,4 @@ module.exports = require('yargs')
     },
     run
   )
-
   .help().argv;

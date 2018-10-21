@@ -10,4 +10,8 @@ const hasBackslashes = str => {
   return str.search(regex1) > -1 || str.search(regex2) > -1 ? false : true;
 };
 
-module.exports = {hasBackslashes, isString};
+const makePathUnixFriendly = str => {
+  return str.replace(/\\/g, '/');
+};
+
+module.exports = {hasBackslashes, isString, makePathUnixFriendly};

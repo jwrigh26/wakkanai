@@ -1,5 +1,4 @@
 const fs = require('fs');
-const yaml = require('js-yaml');
 const osUtils = require('../utils/os.utils');
 const strUtils = require('../utils/string.utils');
 const {error} = require('../constants');
@@ -9,13 +8,6 @@ const path = osUtils.path();
 const defaultInputDir = () => {
   const dir = path.normalize(process.cwd());
   return path.join(dir, 'assets', 'raw');
-};
-
-const createPath = file => path.join(__dirname, file);
-
-const options = {
-  encoding: 'utf8',
-  highWaterMark: 1 * 1024,
 };
 
 const normalizeInputPath = str => {

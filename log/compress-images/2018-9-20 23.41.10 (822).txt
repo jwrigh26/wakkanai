@@ -1,0 +1,7 @@
+File from: [C:/User/jwright/Pictures/images/precious_rascals.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\precious_rascals.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!

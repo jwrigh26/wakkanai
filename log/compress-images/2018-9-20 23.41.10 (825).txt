@@ -1,0 +1,19 @@
+File from: [C:/User/jwright/Pictures/images/cool_robot.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\cool_robot.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!File from: [C:/User/jwright/Pictures/images/marshmallow_kid.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\marshmallow_kid.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!File from: [C:/User/jwright/Pictures/images/fox_kid_running.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\fox_kid_running.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!

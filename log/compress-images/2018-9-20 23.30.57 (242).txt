@@ -1,0 +1,7 @@
+File from: [src\biker_mic.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\src\biker_mic.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!

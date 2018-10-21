@@ -1,0 +1,25 @@
+File from: [C:/User/jwright/Pictures/images/fox_kid_running.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\fox_kid_running.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!File from: [C:/User/jwright/Pictures/images/fox_kid_running.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\fox_kid_running.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!File from: [C:/User/jwright/Pictures/images/fox_kid_running.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\fox_kid_running.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!File from: [C:/User/jwright/Pictures/images/fox_kid_running.jpg]
+
+File to: [C:\Users\jwright\Workspace\wakkanai\build\compressed\fox_kid_running.jpg]
+
+Compression algorithm: [-]
+
+Description: File is not exists!
