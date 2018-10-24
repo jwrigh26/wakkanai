@@ -18,5 +18,3 @@ const readHappyFile = async () => {
 };
 
 module.exports = {readHappyFile};
-
-//https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433

@@ -13,4 +13,9 @@ const description = {
   run: 'Run local yaml file to do magic with images.',
 };
 
-module.exports = {description, error};
+const imageType = {
+  jpg: 'jpg',
+  webp: 'webp',
+};
+
+module.exports = {description, error, imageType};

@@ -25,11 +25,13 @@
   },
   "dependencies": {
     "cliui": "^4.1.0",
-    "compress-images": "^1.4.2",
+    "imagemin": "^6.0.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-webp": "^4.1.0",
     "js-yaml": "^3.12.0",
-    "node-image-resizer": "^1.0.0",
     "ora": "^3.0.0",
-    "webp-converter": "^2.1.6",
+    "sharp": "^0.21.0",
     "yargs": "^12.0.2"
   }
 }
