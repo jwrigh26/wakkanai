@@ -4,21 +4,29 @@ const {Transform} = require('stream');
 const osUtils = require('../utils/os.utils');
 const path = osUtils.path();
 
-const imageSizes = [1400, 900, 600];
+const imageSizes = [
+  {name: 'sm', suffix: '_1x', quality: 60, width: 600},
+  {name: 'sm', suffix: '_2x', quality: 60, width: 1200},
+  {name: 'md', suffix: '_1x', quality: 60, width: 900},
+  {name: 'md', suffix: '_2x', quality: 60, width: 1800},
+  {name: 'lg', suffix: '_1x', quality: 60, width: 1440},
+  {name: 'lg', suffix: '_2x', quality: 60, width: 2880},
+];
 
 const sharpStream = (tempPath, protocol) => {
   const filterSizes = (metaData, sizes) => {
-    return sizes.filter(size => size <= metaData.width);
+    return sizes.filter(size => size.width <= metaData.width);
   };
 
   const resize = async (imagePath, name, extension, callback) => {
     const meta = await sharp(imagePath).metadata();
     try {
       await Promise.all(
-        filterSizes(meta, imageSizes).map(async size => {
-          const file = path.join(tempPath, `${name}_${size}.${extension}`);
+        filterSizes(meta, imageSizes).map(async e => {
+          const img = `${name}-${e.name}_${e.suffix}`;
+          const file = path.join(tempPath, `${name}_${img}.${extension}`);
           await sharp(imagePath)
-            .resize(size)
+            .resize(e.width)
             .toFile(file);
         })
       );
@@ -39,7 +47,7 @@ const sharpStream = (tempPath, protocol) => {
           console.log('Sharp blew up', err, encoding);
           throw err;
         }
-        console.log('Completed resizeing for ', name, protocol);
+
         this.push(file);
         callback();
       });

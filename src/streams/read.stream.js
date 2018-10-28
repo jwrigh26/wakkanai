@@ -4,6 +4,7 @@ const {isTruthy} = require('../utils/truthy.utils');
 const osUtils = require('../utils/os.utils');
 const {Readable} = require('stream');
 const path = osUtils.path();
+const {imageType} = require('../constants');
 
 const asyncReaddir = util.promisify(fs.readdir);
 
@@ -26,12 +27,21 @@ const readImageFileStream = data => {
 };
 
 const readdir = async dirPath => {
+  const filter = file => {
+    if (path.extname(file) === `.${imageType.jpg}` || path.extname(file) === `.${imageType.webp}`) {
+      return true;
+    }
+
+    return false;
+  };
+
   const options = {
     encoding: 'utf8',
     highWaterMark: 8 * 1024,
   };
   const data = await asyncReaddir(dirPath, options);
-  return data;
+  const filtered = data.filter(filter);
+  return filtered;
 };
 
 const writeScratchFile = () => {

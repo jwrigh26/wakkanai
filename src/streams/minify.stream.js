@@ -26,7 +26,7 @@ const minimizeStream = (dirPath, tempPath, protocol) => {
         })
         .catch(err => {
           console.log('Min blew up', err, encoding);
-          throw err;
+          callback(err);
         });
     },
   });
