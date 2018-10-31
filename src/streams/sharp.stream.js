@@ -24,7 +24,7 @@ const sharpStream = (tempPath, protocol) => {
       await Promise.all(
         filterSizes(meta, imageSizes).map(async e => {
           const img = `${name}-${e.name}_${e.suffix}`;
-          const file = path.join(tempPath, `${name}_${img}.${extension}`);
+          const file = path.join(tempPath, `${img}.${extension}`);
           await sharp(imagePath)
             .resize(e.width)
             .toFile(file);
