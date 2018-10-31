@@ -6,7 +6,7 @@ const {writeOutputStream} = require('./streams/write.stream');
 // const {readYamlFile} = require('./helpers/yaml.service');
 const minimizeStream = require('./streams/minify.stream');
 const sharpStream = require('./streams/sharp.stream');
-const {copyFileStream, createNewDir} = require('./streams/copy.stream');
+const {copyFileStream, createNewDir, createNewWebDir} = require('./streams/copy.stream');
 const streamHelper = require('./helpers/stream.helper');
 const removeDir = require('./helpers/removeDir');
 const Ora = require('ora');
@@ -22,7 +22,7 @@ const cleanup = tmpPath => async () => {
 };
 
 const copyImages = (dirPath, tmpPath) => async () => {
-  const newDirPath = await createNewDir(dirPath);
+  const newDirPath = await createNewWebDir(dirPath);
   const fileNames = await readdir(tmpPath);
   const readStrm = readImageFileStream(fileNames);
   const copyStrm = copyFileStream(newDirPath, tmpPath);
@@ -41,7 +41,7 @@ const copyImages = (dirPath, tmpPath) => async () => {
 const processImages = async argv => {
   // const ymlDoc = await readYamlFile(argv.file);
   const dirPath = normalizeInputPath(argv.directory);
-  const tmpPath = streamHelper.tempPath;
+  const tmpPath = await createNewDir(streamHelper.tempPath);
   const fileNames = await readdir(dirPath);
   const readStrm = readImageFileStream(fileNames);
   const minJpegStrm = minimizeStream(dirPath, tmpPath, imageType.jpg);

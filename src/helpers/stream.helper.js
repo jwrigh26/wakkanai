@@ -4,7 +4,6 @@ const {finished} = require('stream');
 const finishHandler = util.promisify(finished);
 const osUtils = require('../utils/os.utils');
 const path = osUtils.path();
-const fs = require('fs');
 
 const handleFinish = spinner => async (stream, text, callback = null) => {
   await finishHandler(stream);

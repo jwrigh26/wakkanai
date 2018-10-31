@@ -5,12 +5,12 @@ const osUtils = require('../utils/os.utils');
 const path = osUtils.path();
 
 const imageSizes = [
-  {name: 'sm', suffix: '_1x', quality: 60, width: 600},
-  {name: 'sm', suffix: '_2x', quality: 60, width: 1200},
-  {name: 'md', suffix: '_1x', quality: 60, width: 900},
-  {name: 'md', suffix: '_2x', quality: 60, width: 1800},
-  {name: 'lg', suffix: '_1x', quality: 60, width: 1440},
-  {name: 'lg', suffix: '_2x', quality: 60, width: 2880},
+  {name: 'sm', suffix: '1x', quality: 60, width: 600},
+  {name: 'sm', suffix: '2x', quality: 60, width: 1200},
+  {name: 'md', suffix: '1x', quality: 60, width: 900},
+  {name: 'md', suffix: '2x', quality: 60, width: 1800},
+  {name: 'lg', suffix: '1x', quality: 60, width: 1440},
+  {name: 'lg', suffix: '2x', quality: 60, width: 2880},
 ];
 
 const sharpStream = (tempPath, protocol) => {

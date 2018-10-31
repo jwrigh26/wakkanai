@@ -9,12 +9,16 @@ const makeDir = util.promisify(fs.mkdir);
 const copy = util.promisify(fs.copyFile);
 
 const createNewDir = async dirPath => {
-  const newPath = path.join(dirPath, '/', 'web');
-  const exists = await dirExists(newPath);
+  const exists = await dirExists(dirPath);
   if (!exists) {
-    await makeDir(newPath);
+    await makeDir(dirPath);
   }
-  return newPath;
+  return dirPath;
+};
+
+const createNewWebDir = async dirPath => {
+  const newPath = path.join(dirPath, '/', 'web');
+  return await createNewDir(newPath);
 };
 
 const copyFileStream = (dirPath, tmpPath) => {
@@ -40,4 +44,4 @@ const copyFileStream = (dirPath, tmpPath) => {
   return stream;
 };
 
-module.exports = {copyFileStream, createNewDir};
+module.exports = {copyFileStream, createNewDir, createNewWebDir};
